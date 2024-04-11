@@ -23,7 +23,7 @@ module Controller(Instruction, ALUControl, RegWrite, MemWrite, Branch, MemToReg,
     ImmGen #(BITS) immGen(
         .OpCode(Instruction[6:2]),
         .InstructionP1(Instruction[31:20]),
-        .InstructionP2(Instruction[11:7])
+        .InstructionP2(Instruction[11:7]),
         .Imm(Imm));
 
 endmodule
