@@ -1,4 +1,4 @@
-module  Register_Bank #(parameter DEPTH = 32, BITS = 64) (clk, address1, address2, addressw, writeData, writeEn, read1, read2);
+module Memory #(parameter DEPTH = 32, BITS = 64) (clk, address1, address2, addressw, writeData, writeEn, read1, read2);
 
     input wire [0:$clog2(DEPTH)-1] address1, address2, addressw;
     input wire [0:BITS-1] writeData;

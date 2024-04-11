@@ -1,5 +1,5 @@
 `include "Alu.sv"
-module tb_pv();
+module tb_Alu();
 
 reg [0:64-1] SrcA, SrcB;
 reg [0:1] ALUControl;

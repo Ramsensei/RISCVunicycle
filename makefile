@@ -1,13 +1,13 @@
 start:
 
 test:
-	iverilog -g2012 -W all -o pv tb_pv.sv
-	./pv
-	gtkwave pv.vcd
-	rm ./pv ./pv.vcd
+	vcs -Mupdate tb_pv.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
+	./simv
 
 test_alu:
-	iverilog -g2012 -W all -o pv tb_Alu.sv
-	./pv
-	gtkwave pv.vcd
-	rm ./pv ./pv.vcd
+	vcs -Mupdate tb_Alu.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
+	./simv
+
+test_ImmGen:
+	vcs -Mupdate tb_ImmGen.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
+	./simv
