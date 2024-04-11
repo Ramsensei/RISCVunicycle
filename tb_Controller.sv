@@ -1,3 +1,4 @@
+`include "Controller.sv"
 module tb_Controller();
     reg [0:31] Instruction;
     reg [0:63] Imm;

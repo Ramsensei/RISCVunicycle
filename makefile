@@ -11,3 +11,7 @@ test_alu:
 test_ImmGen:
 	vcs -Mupdate tb_ImmGen.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
 	./simv
+
+test_Control:
+	vcs -Mupdate tb_Controller.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
+	./simv
