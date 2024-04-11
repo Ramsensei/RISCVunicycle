@@ -1,3 +1,4 @@
+`include "ImmGen.sv"
 module tb_ImmGen();
 
     reg [0:4] OpCode;
