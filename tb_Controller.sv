@@ -33,5 +33,8 @@ module tb_Controller();
         #10;
         Instruction = 32'b00010100101000110000010101100011;
         #10;
+        Instruction = 32'b00000000000000000000000000000000;
+        #10;
+        $finish;
     end
 endmodule
