@@ -2,7 +2,7 @@
 `include "ImmGen.sv"
 module Controller(Instruction, ALUControl, RegWrite, MemWrite, Branch, MemToReg, ALUScr, Imm);
     parameter BITS = 32;
-    input wire [0:BITS-1] Instruction;
+    input wire [BITS-1:0] Instruction;
 
     output reg [0:63] Imm;
     output reg [0:1] ALUControl;
