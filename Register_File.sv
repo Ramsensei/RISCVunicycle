@@ -21,7 +21,7 @@ module Register_File (clk, address1, address2, addressw, writeData, writeEn, rea
         end
     endgenerate
 
-    Mux mux1(.Data_arr(Mux), .selector(address1), .Out(read1));
-    Mux mux2(.Data_arr(Mux), .selector(address2), .Out(read2));
+    Mux #(DEPTH, BITS) mux1(.Data_arr(Mux), .selector(address1), .Out(read1));
+    Mux #(DEPTH, BITS) mux2(.Data_arr(Mux), .selector(address2), .Out(read2));
 
 endmodule
