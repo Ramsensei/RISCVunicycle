@@ -17,7 +17,7 @@ module Register_File (clk, address1, address2, addressw, writeData, writeEn, rea
     generate
         for (i = 0; i < DEPTH; i++) begin : generate_registers
             assign regEnable[i] = hotbitOut[i] & writeEn;
-            Register register(.clk(clk), .writeData(writeData), .writeEn(regEnable[i]), .read(Mux[i]));
+            Register #(BITS) register(.clk(clk), .writeData(writeData), .writeEn(regEnable[i]), .read(Mux[i]));
         end
     endgenerate
 

@@ -7,6 +7,8 @@ module tb_Hot_Bit();
     Hot_Bit #(.DEPTH(8)) hot_bit(.index(index), .Out(Out));
 
     initial begin
+        $dumpfile("pv.vcd");
+        $dumpvars(0, tb_Hot_Bit);
         index = 0;
         #10 index = 1;
         #10 index = 2;
