@@ -8,14 +8,16 @@ module Register_File (clk, address1, address2, addressw, writeData, writeEn, rea
     input wire writeEn, clk;
     output reg [0:BITS-1] read1, read2;
 
-    reg [0:DEPTH-1] hotbitOut;
-    reg [0:BITS-1] Mux [0:DEPTH-1];
-    wire [0:DEPTH-1] regEnable;
+    reg [DEPTH-1:0] hotbitOut;
+    wire [0:BITS-1] Mux [0:DEPTH-1];
+    wire [DEPTH-1:0] regEnable;
     Hot_Bit #(DEPTH, BITS) hotbit1(.index(addressw), .Out(hotbitOut));
+
+    Mux[0] = 0;
 
     genvar i;
     generate
-        for (i = 0; i < DEPTH; i++) begin : generate_registers
+        for (i = 1; i < DEPTH; i++) begin : generate_registers
             assign regEnable[i] = hotbitOut[i] & writeEn;
             Register #(BITS) register(.clk(clk), .writeData(writeData), .writeEn(regEnable[i]), .read(Mux[i]));
         end
