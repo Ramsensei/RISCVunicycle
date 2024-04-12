@@ -6,10 +6,10 @@ module InstMemory #(parameter DEPTH = 32, BITS = 64) (clk, address, readData);
 
     reg [0:BITS-1] registers [0:DEPTH-1];
 
-    $readmemh("memory.dat", registers);
 
     always @(posedge clk) begin
         readData <= registers[address];
     end
-
+    initial
+        $readmemh("memory.dat", registers);
 endmodule
