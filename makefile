@@ -19,7 +19,7 @@ test_Control:
 test_Registers:
 	vcs -Mupdate tb_Register_File.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
 	./simv
-	
+
 test_Comparator:
 	vcs -Mupdate tb_Nbit_Equal_Comp.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
 	./simv
@@ -38,4 +38,8 @@ test_Control_gui:
 
 test_Registers_gui:
 	vcs -Mupdate tb_Register_File.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
+	./simv -gui &
+
+test_Comparator_gui:
+	vcs -Mupdate tb_Nbit_Equal_Comp.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
 	./simv -gui &
