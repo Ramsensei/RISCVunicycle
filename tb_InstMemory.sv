@@ -1,7 +1,7 @@
 `include "InstMemory.sv"
 module tb_InstMemory();
 
-    reg [5:0] address;
+    reg [4:0] address;
     reg clk;
     wire [63:0] readData;
 
