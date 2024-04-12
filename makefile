@@ -24,6 +24,10 @@ test_Comparator:
 	vcs -Mupdate tb_Nbit_Equal_Comp.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
 	./simv
 
+test_HotBit:
+	vcs -Mupdate tb_Hot_Bit.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
+	./simv
+
 test_Alu_gui:
 	vcs -Mupdate tb_Alu.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
 	./simv -gui &
@@ -42,4 +46,8 @@ test_Registers_gui:
 
 test_Comparator_gui:
 	vcs -Mupdate tb_Nbit_Equal_Comp.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
+	./simv -gui &
+
+test_HotBit_gui:
+	vcs -Mupdate tb_Hot_Bit.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
 	./simv -gui &
