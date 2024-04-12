@@ -27,11 +27,13 @@ module tb_Register_File();
         writeData = 64'hFEDCBA0987654321;
         writeEn = 1;
         #10;
+        writeEn = 0;
         address1 = 1;
         address2 = 2;
         #10;
-
-
+        addressw = 0;
+        #10;
+        $finish;
     
     end
 
