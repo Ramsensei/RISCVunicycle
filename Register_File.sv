@@ -2,7 +2,7 @@
 `include "Hot_Bit.sv"
 `include "Mux.sv"
 module Register_File (clk, address1, address2, addressw, writeData, writeEn, read1, read2);
-    parameter DEPTH = 32, BITS = 64
+    parameter DEPTH = 32, BITS = 64;
     input wire [0:$clog2(DEPTH)-1] address1, address2, addressw;
     input wire [0:BITS-1] writeData;
     input wire writeEn, clk;
