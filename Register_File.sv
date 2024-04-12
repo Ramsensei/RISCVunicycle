@@ -10,14 +10,14 @@ module Register_File (clk, address1, address2, addressw, writeData, writeEn, rea
 
     reg [0:DEPTH-1] hotbitOut;
     reg [0:BITS-1] Mux [0:DEPTH-1];
- 
+    reg [0:DEPTH-1] regEnable;
     Hot_Bit #(DEPTH, BITS) hotbit1(.index(addressw), .Out(hotbitOut));
 
     genvar i;
     generate
         for (i = 0; i < DEPTH; i++) begin : generate_registers
-            assign regEnable = hotbit1[i] & writeEn;
-            Register register(.clk(clk), .writeData(writeData), .writeEn(regEnable), .read(Mux[i]));
+            assign regEnable[i] = hotbitOut[i] & writeEn;
+            Register register(.clk(clk), .writeData(writeData), .writeEn(regEnable[i]), .read(Mux[i]));
         end
     endgenerate
 
