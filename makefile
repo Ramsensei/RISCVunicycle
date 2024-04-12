@@ -16,6 +16,10 @@ test_Control:
 	vcs -Mupdate tb_Controller.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
 	./simv
 
+test_Registers:
+	vcs -Mupdate tb_Register_File.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
+	./simv
+
 test_Alu_gui:
 	vcs -Mupdate tb_Alu.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
 	./simv -gui &
@@ -26,4 +30,8 @@ test_Immgen_gui:
 	
 test_Control_gui:
 	vcs -Mupdate tb_Controller.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
+	./simv -gui &
+
+test_Registers_gui:
+	vcs -Mupdate tb_Register_File.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
 	./simv -gui &
