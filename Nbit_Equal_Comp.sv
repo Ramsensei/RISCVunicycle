@@ -1,5 +1,5 @@
 `include "Equal_Comp.sv"
-module Nbit_Equal_Comp #(BITS = 32) (Data0, Data1, Out)
+module Nbit_Equal_Comp #(BITS = 32) (Data0, Data1, Out);
     input [BITS-1:0] Data0, Data1;
     output [BITS-1:0] Out;
 
