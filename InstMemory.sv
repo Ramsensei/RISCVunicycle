@@ -12,5 +12,4 @@ module InstMemory #(parameter DEPTH = 32, BITS = 64) (clk, address, readData);
         readData <= registers[address];
     end
 
- 
 endmodule
