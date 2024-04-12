@@ -10,7 +10,7 @@ module Register_File (clk, address1, address2, addressw, writeData, writeEn, rea
 
     reg [0:DEPTH-1] hotbitOut;
     reg [0:BITS-1] Mux [0:DEPTH-1];
-    reg [0:DEPTH-1] regEnable;
+    wire [0:DEPTH-1] regEnable;
     Hot_Bit #(DEPTH, BITS) hotbit1(.index(addressw), .Out(hotbitOut));
 
     genvar i;
