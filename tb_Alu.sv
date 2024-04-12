@@ -25,7 +25,7 @@ Alu dut (
 
 initial begin
     $dumpfile("pv.vcd");
-    $dumpvars(0, tb_pv);
+    $dumpvars(0, tb_Alu);
     
     // Test for the Alu
     // Test sum
