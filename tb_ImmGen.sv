@@ -13,6 +13,8 @@ module tb_ImmGen();
         .Imm(Imm));
 
     initial begin
+        $dumpfile("pv.vcd");
+        $dumpvars(0, tb_ImmGen);
         OpCode = 5'b00000;
         InstructionP1 = 12'b111111111101;
         InstructionP2 = 5'b00000;
