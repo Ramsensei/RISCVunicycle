@@ -1,17 +1,21 @@
 start:
 
 test:
-	vcs -Mupdate tb_pv.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
+	vcs -Mupdate tb_pv.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
 	./simv
 
 test_alu:
-	vcs -Mupdate tb_Alu.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
+	vcs -Mupdate tb_Alu.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
 	./simv
 
 test_ImmGen:
-	vcs -Mupdate tb_ImmGen.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
+	vcs -Mupdate tb_ImmGen.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
 	./simv
 
 test_Control:
-	vcs -Mupdate tb_Controller.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
+	vcs -Mupdate tb_Controller.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
 	./simv
+
+test_Control_gui:
+	vcs -Mupdate tb_Controller.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
+	./simv -gui &
