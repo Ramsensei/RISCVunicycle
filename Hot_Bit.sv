@@ -2,7 +2,7 @@
 module Hot_Bit #(DEPTH = 8) (index, Out);
     parameter BITS = $clog2(DEPTH);
     input [$clog2(DEPTH)-1:0] index;
-    output [DEPTH-1:0] Out;
+    output reg [DEPTH-1:0] Out;
 
 
     genvar i;
