@@ -8,6 +8,14 @@ module tb_InstMemory();
     InstMemory #(.DEPTH(32), .BITS(64)) instMemory(.address(address), .clk(clk), .readData(readData));
 
     initial begin
+        clk = 0;
+        forever begin
+            clk = ~clk;
+            #5;
+        end
+    end
+
+    initial begin
         $dumpfile("pv.vcd");
         $dumpvars(0, tb_InstMemory);
         
