@@ -1,3 +1,4 @@
+`include "Register_File.sv"
 module tb_Register_File();
 
     reg clk;
