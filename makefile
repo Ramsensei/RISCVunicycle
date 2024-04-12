@@ -32,6 +32,10 @@ test_Memory:
 	vcs -Mupdate tb_Memory.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
 	./simv
 
+test_InstMemory:
+	vcs -Mupdate tb_InstMemory.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
+	./simv
+
 test_Alu_gui:
 	vcs -Mupdate tb_Alu.sv -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -kdb -sverilog -l log
 	./simv -gui &
