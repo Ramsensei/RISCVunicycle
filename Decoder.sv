@@ -42,6 +42,14 @@ module Decoder (OpCode, funct1, funct2, ALUControl, RegWrite, MemWrite, Branch, 
                 MemToReg = 1'b0;
                 ALUScr = 1'b0;
             end
+            5'b00100: begin
+                ALUControl = 2'b00;
+                RegWrite = 1'b1;
+                MemWrite = 1'b0;
+                Branch = 1'b0;
+                MemToReg = 1'b0;
+                ALUScr = 1'b1;
+            end
             default: begin
                 ALUControl = 2'b00;
                 RegWrite = 1'b0;
