@@ -8,7 +8,7 @@ module Hot_Bit #(DEPTH = 8) (index, Out);
     genvar i;
     generate
         for (i = 0; i < DEPTH; i++) begin : generate_hotbit_outputs
-            Nbit_Equal_Comp #(BITS) equal_n_bits(.Data0(index), .Data1(i), .Out(Out[i]));
+            Nbit_Equal_Comp #(BITS) equal_n_bits(.Data0(index), .Data1(i[4:0]), .Out(Out[i]));
         end
     endgenerate
     
