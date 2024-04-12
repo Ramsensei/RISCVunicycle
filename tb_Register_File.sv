@@ -10,9 +10,16 @@ module tb_Register_File();
     Register_File register_file(.clk(clk), .address1(address1), .address2(address2), .addressw(addressw), .writeData(writeData), .writeEn(writeEn), .read1(read1), .read2(read2));
 
     initial begin
+        clk = 0;
+        forever begin
+            clk = ~clk;
+            #5;
+        end
+    end
+
+    initial begin
         $dumpfile("pv.vcd");
         $dumpvars(0, tb_Register_File);
-        clk = 0;
         address1 = 0;
         address2 = 0;
         addressw = 0;
