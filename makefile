@@ -9,6 +9,7 @@ test:
 test_vcs:
 	vcs -Mupdate $(filter-out $@,$(MAKECMDGOALS)) -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
 	./simv
+	gtkwave pv.vcd
 
 test_gui:
 
