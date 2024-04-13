@@ -7,7 +7,7 @@ module InstMemory #(parameter DEPTH = 32, BITS = 64) (address, readData);
 
 
     always_comb begin
-        readData <= registers[address];
+        readData = registers[address];
     end
     
     initial
