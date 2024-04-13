@@ -1,9 +1,12 @@
+`ifndef TOP
 `include "Register.sv"
 `include "Hot_Bit.sv"
 `include "Mux.sv"
+`endif  
 module Register_File (clk, address1, address2, addressw, writeData, writeEn, read1, read2);
-    parameter DEPTH = 32, BITS = 64;
-    input wire [0:$clog2(DEPTH)-1] address1, address2, addressw;
+    parameter DEPTH = 32;
+    parameter BITS = 64;
+    input wire [0:($clog2(DEPTH)-1)] address1, address2, addressw;
     input wire [0:BITS-1] writeData;
     input wire writeEn, clk;
     output reg [0:BITS-1] read1, read2;
@@ -11,7 +14,7 @@ module Register_File (clk, address1, address2, addressw, writeData, writeEn, rea
     reg [DEPTH-1:0] hotbitOut;
     wire [0:BITS-1] Mux [0:DEPTH-1];
     wire [DEPTH-1:0] regEnable;
-    Hot_Bit #(DEPTH, BITS) hotbit1(.index(addressw), .Out(hotbitOut));
+    Hot_Bit #(DEPTH) hotbit1(.index(addressw), .Out(hotbitOut));
 
     assign Mux[0] = 0;
 

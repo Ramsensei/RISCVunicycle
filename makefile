@@ -13,4 +13,4 @@ test_win:
 	iverilog -g2012 -o out -W all $(filter-out $@,$(MAKECMDGOALS)) > log
 	vvp out
 	gtkwave pv.vcd
-	rm out
+	rm .\out

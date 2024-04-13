@@ -1,5 +1,7 @@
+`ifndef TOP
 `include "Adder.sv"
 `include "Mux.sv"
+`endif
 module Alu #(parameter BITS = 64) (SrcA, SrcB, ALUControl, ALUResult, ALUFlags);
     input wire [0:BITS-1] SrcA, SrcB;
 	input wire [0:1] ALUControl;
@@ -36,6 +38,8 @@ module Alu #(parameter BITS = 64) (SrcA, SrcB, ALUControl, ALUResult, ALUFlags);
 	assign ALUFlags[1] = ~ALUControl[0] && cout;
 	assign ALUFlags[2] = mux4_output[0];
 	assign ALUFlags[3] = &(~mux4_output);
+
+	// ALUFlags[0] = [Overflow, Carry, Neg, Zero]
 			  
 	assign ALUResult = mux4_output;
 				
