@@ -21,7 +21,7 @@ module Datapath(clk, rst, Instruction, ALUControl, RegWrite, MemWrite, Branch, M
 
     wire [BITS-1:0] PCm4;
     wire [BITS-1:0] instAdd;
-    wire [BITS-1:0] BranchMux [1:0];
+    wire [BITS-1:0] BranchMux [0:1];
     wire [BITS-1:0] ALUMux [1:0];
     wire [BITS-1:0] WBMux [1:0];
     wire [BITS-1:0] SrcA, SrcB;
