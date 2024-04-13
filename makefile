@@ -1,6 +1,12 @@
 start:
 
 test:
+	iverilog -g2012 -o out -W all $(filter-out $@,$(MAKECMDGOALS)) > log
+	./out
+	gtkwave pv.vcd
+	rm out
+
+test_vcs:
 	vcs -Mupdate $(filter-out $@,$(MAKECMDGOALS)) -full64 -debug_acc+all+dmptf -debug_region+cell+encrypt -sverilog -l log
 	./simv
 
