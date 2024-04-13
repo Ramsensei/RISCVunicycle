@@ -9,7 +9,7 @@ module Controller(Instruction, ALUControl, RegWrite, MemWrite, Branch, MemToReg,
     output reg RegWrite, MemWrite, Branch, MemToReg;
     output reg ALUScr;
 
-    Decoder #(BITS) decoder(
+    Decoder decoder(
         .OpCode(Instruction[6:2]),
         .funct1(Instruction[14:12]),
         .funct2(Instruction[30]),
@@ -20,7 +20,7 @@ module Controller(Instruction, ALUControl, RegWrite, MemWrite, Branch, MemToReg,
         .MemToReg(MemToReg),
         .ALUScr(ALUScr));
 
-    ImmGen #(BITS) immGen(
+    ImmGen immGen(
         .OpCode(Instruction[6:2]),
         .InstructionP1(Instruction[31:20]),
         .InstructionP2(Instruction[11:7]),
