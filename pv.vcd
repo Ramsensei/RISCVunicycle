@@ -1,5 +1,5 @@
 $date
-	Sat Apr 13 00:06:40 2024
+	Thu May 02 13:26:53 2024
 $end
 $version
 	Icarus Verilog
@@ -70,7 +70,7 @@ $var wire 32 @ Instruction [31:0] $end
 $var wire 4 A ALUFlags [3:0] $end
 $var parameter 32 B BITS $end
 $scope module ALUScrMux $end
-$var wire 64 C Out [0:63] $end
+$var wire 64 C Out [63:0] $end
 $var wire 1 ) selector $end
 $var parameter 32 D BITS $end
 $var parameter 32 E DEPTH $end
@@ -1382,36 +1382,36 @@ $var wire 1 g) sum $end
 $upscope $end
 $upscope $end
 $scope module PCMux $end
-$var wire 64 h) Out [0:63] $end
+$var wire 64 h) Out [63:0] $end
 $var wire 1 9 selector $end
 $var parameter 32 i) BITS $end
 $var parameter 32 j) DEPTH $end
 $upscope $end
 $scope module WBMuxMux $end
-$var wire 64 k) Out [0:63] $end
+$var wire 64 k) Out [63:0] $end
 $var wire 1 % selector $end
 $var parameter 32 l) BITS $end
 $var parameter 32 m) DEPTH $end
 $upscope $end
 $scope module alu $end
-$var wire 2 n) ALUControl [0:1] $end
-$var wire 64 o) ALUResult [0:63] $end
-$var wire 64 p) SrcB [0:63] $end
-$var wire 64 q) mux4_output [0:63] $end
-$var wire 64 r) mux2_output [0:63] $end
+$var wire 2 n) ALUControl [1:0] $end
+$var wire 64 o) ALUResult [63:0] $end
+$var wire 64 p) SrcB [63:0] $end
+$var wire 64 q) mux4_output [63:0] $end
+$var wire 64 r) mux2_output [63:0] $end
 $var wire 1 s) cout $end
-$var wire 64 t) SrcA [0:63] $end
-$var wire 4 u) ALUFlags [0:3] $end
+$var wire 64 t) SrcA [63:0] $end
+$var wire 4 u) ALUFlags [3:0] $end
 $var parameter 32 v) BITS $end
 $scope module mux2 $end
-$var wire 64 w) Out [0:63] $end
+$var wire 64 w) Out [63:0] $end
 $var wire 1 x) selector $end
 $var parameter 32 y) BITS $end
 $var parameter 32 z) DEPTH $end
 $upscope $end
 $scope module mux4 $end
-$var wire 64 {) Out [0:63] $end
-$var wire 2 |) selector [0:1] $end
+$var wire 64 {) Out [63:0] $end
+$var wire 2 |) selector [1:0] $end
 $var parameter 32 }) BITS $end
 $var parameter 32 ~) DEPTH $end
 $upscope $end
@@ -2078,15 +2078,15 @@ $var parameter 32 4. DEPTH $end
 $var reg 64 5. readData [0:63] $end
 $upscope $end
 $scope module regFile $end
-$var wire 5 6. address1 [0:4] $end
-$var wire 5 7. address2 [0:4] $end
-$var wire 5 8. addressw [0:4] $end
+$var wire 5 6. address1 [4:0] $end
+$var wire 5 7. address2 [4:0] $end
+$var wire 5 8. addressw [4:0] $end
 $var wire 1 ! clk $end
-$var wire 64 9. writeData [0:63] $end
+$var wire 64 9. writeData [63:0] $end
 $var wire 1 # writeEn $end
 $var wire 32 :. regEnable [31:0] $end
-$var wire 64 ;. read2 [0:63] $end
-$var wire 64 <. read1 [0:63] $end
+$var wire 64 ;. read2 [63:0] $end
+$var wire 64 <. read1 [63:0] $end
 $var wire 32 =. hotbitOut [31:0] $end
 $var parameter 32 >. BITS $end
 $var parameter 32 ?. DEPTH $end
@@ -4038,14 +4038,14 @@ $upscope $end
 $upscope $end
 $upscope $end
 $scope module mux1 $end
-$var wire 64 49 Out [0:63] $end
-$var wire 5 59 selector [0:4] $end
+$var wire 64 49 Out [63:0] $end
+$var wire 5 59 selector [4:0] $end
 $var parameter 32 69 BITS $end
 $var parameter 32 79 DEPTH $end
 $upscope $end
 $scope module mux2 $end
-$var wire 64 89 Out [0:63] $end
-$var wire 5 99 selector [0:4] $end
+$var wire 64 89 Out [63:0] $end
+$var wire 5 99 selector [4:0] $end
 $var parameter 32 :9 BITS $end
 $var parameter 32 ;9 DEPTH $end
 $upscope $end

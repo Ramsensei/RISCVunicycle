@@ -1,18 +1,15 @@
-`ifndef TOP
-`include "Adder.sv"
-`include "Mux.sv"
-`endif
+
 module Alu #(parameter BITS = 64) (SrcA, SrcB, ALUControl, ALUResult, ALUFlags);
-    input wire [0:BITS-1] SrcA, SrcB;
-	input wire [0:1] ALUControl;
-	output reg [0:BITS-1] ALUResult;
-	output reg [0:3] ALUFlags;
+    input wire [BITS-1:0] SrcA, SrcB;
+	input wire [1:0] ALUControl;
+	output reg [BITS-1:0] ALUResult;
+	output reg [3:0] ALUFlags;
     
-    wire [0:BITS-1] Data_arr_mux2 [0:1];
-    wire [0:BITS-1] Data_arr_mux4 [0:3];
-	wire [0:BITS-1] mux2_output;
+    wire [BITS-1:0] Data_arr_mux2 [1:0];
+    wire [BITS-1:0] Data_arr_mux4 [3:0];
+	wire [BITS-1:0] mux2_output;
 	// wire [0:BITS-1] sum_output;
-    wire [0:BITS-1] mux4_output;
+    wire [BITS-1:0] mux4_output;
     // wire [0:BITS-1] A_or_B;
     // wire [0:BITS-1] A_and_B;
     wire cout;
@@ -20,9 +17,9 @@ module Alu #(parameter BITS = 64) (SrcA, SrcB, ALUControl, ALUResult, ALUFlags);
     assign Data_arr_mux2[0] = SrcB;
     assign Data_arr_mux2[1] = ~SrcB;
 
-	Mux #(2,64) mux2(Data_arr_mux2,ALUControl[1],mux2_output);
+	Mux #(2,64) mux2(Data_arr_mux2,ALUControl[0],mux2_output);
 
-	Adder sum(SrcA,mux2_output,ALUControl[1],Data_arr_mux4[0],cout);
+	Adder sum(SrcA,mux2_output,ALUControl[0],Data_arr_mux4[0],cout);
 
     assign Data_arr_mux4[1] = Data_arr_mux4[0];
 	assign Data_arr_mux4[2] = SrcA & SrcB;
@@ -34,12 +31,12 @@ module Alu #(parameter BITS = 64) (SrcA, SrcB, ALUControl, ALUResult, ALUFlags);
 
 	Mux #(4,64) mux4(Data_arr_mux4, ALUControl, mux4_output);
 			  
-	assign ALUFlags[0] = ~ALUControl[0] && (mux4_output[0]||SrcA[0]) && ~(ALUControl[1]||SrcA[0]||SrcB[0]);
-	assign ALUFlags[1] = ~ALUControl[0] && cout;
-	assign ALUFlags[2] = mux4_output[0];
-	assign ALUFlags[3] = &(~mux4_output);
+	assign ALUFlags[3] = ~ALUControl[1] && (mux4_output[BITS-1]||SrcA[BITS-1]) && ~(ALUControl[0]||SrcA[BITS-1]||SrcB[BITS-1]);
+	assign ALUFlags[2] = ~ALUControl[1] && cout;
+	assign ALUFlags[1] = mux4_output[BITS-1];
+	assign ALUFlags[0] = &(~mux4_output);
 
-	// ALUFlags[0] = [Overflow, Carry, Neg, Zero]
+	// ALUFlags = [Overflow, Carry, Neg, Zero]
 			  
 	assign ALUResult = mux4_output;
 				
